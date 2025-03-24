@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader2, X } from 'lucide-react';
-import Chatbot from "./components/chatbot/Chatbot";
 import './Chatbot.css';
 
 function Chatbot() {
