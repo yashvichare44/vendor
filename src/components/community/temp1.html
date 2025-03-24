@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="pt-24 mb-5 px-6 flex justify-center">
+        <div class="flex justify-center flex-col md:w-2/3">
+            <div class="flex justify-start items-start sm:space-x-4 flex-wrap bg-white p-6 rounded-lg shadow-md">
+                <img id="projectImage" class="rounded-xl h-64 object-cover sm:w-1/3 w-full" alt="Project Image" />
+                <div class="flex-1 sm:py-0 py-4">
+                    <div class="flex flex-col justify-start flex-wrap">
+                        <h5 id="projectTitle" class="text-gray-900 text-xl font-medium mb-2"></h5>
+                        <small id="projectExpiry" class="text-gray-500"></small>
+                    </div>
+                    <div class="flex justify-between items-center w-full pt-1">
+                        <div class="flex justify-start space-x-2">
+                            <img class="rounded-full shadow-md" src="identicon.png" alt="Identicon" />
+                            <small id="projectOwner" class="text-gray-700"></small>
+                            <small id="projectBackers" class="text-gray-500 font-bold"></small>
+                        </div>
+                        <div class="font-bold">
+                            <small id="projectStatus" class="text-gray-500"></small>
+                        </div>
+                    </div>
+                    <p id="projectDescription" class="text-sm font-light mt-2"></p>
+                    <div class="w-full overflow-hidden bg-gray-300 mt-4">
+                        <div id="progressBar" class="bg-green-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none rounded-l-full h-1 overflow-hidden max-w-full"></div>
+                    </div>
+                    <div class="flex justify-between items-center font-bold mt-2">
+                        <small id="projectRaised"></small>
+                        <small class="flex justify-start items-center">
+                            <img src="ethereum-icon.png" alt="ETH" />
+                            <span id="projectCost"></span>
+                        </small>
+                    </div>
+                    <div class="flex justify-start items-center space-x-2 mt-4">
+                        <button class="px-6 py-2.5 bg-green-600 text-white font-medium text-xs uppercase rounded-full shadow-md hover:bg-green-700">Donate</button>
+                        <button class="px-6 py-2.5 bg-gray-600 text-white font-medium text-xs uppercase rounded-full shadow-md hover:bg-gray-700">Edit</button>
+                        <button class="px-6 py-2.5 bg-red-600 text-white font-medium text-xs uppercase rounded-full shadow-md hover:bg-red-700">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const project = {
+            title: "Save the Forests",
+            description: "A crowdfunding campaign to support reforestation projects.",
+            imageURL: "https://example.com/project-image.jpg",
+            expiresAt: 1711238400,
+            owner: "0x1234...5678",
+            backers: 120,
+            statusText: "Open",
+            raised: 5.2,
+            cost: 10,
+            progressPercentage: 52
+        };
+        
+        document.getElementById("projectImage").src = project.imageURL;
+        document.getElementById("projectTitle").textContent = project.title;
+        document.getElementById("projectExpiry").textContent = project.expiresAt ? "Expires Soon" : "Expired";
+        document.getElementById("projectOwner").textContent = project.owner;
+        document.getElementById("projectBackers").textContent = `${project.backers} Backer${project.backers === 1 ? '' : 's'}`;
+        document.getElementById("projectStatus").textContent = project.statusText;
+        document.getElementById("projectDescription").textContent = project.description;
+        document.getElementById("progressBar").style.width = project.progressPercentage + "%";
+        document.getElementById("projectRaised").textContent = `${project.raised} ETH Raised`;
+        document.getElementById("projectCost").textContent = `${project.cost} ETH`;
+    </script>
+</body>
+</html>

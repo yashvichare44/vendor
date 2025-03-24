@@ -1,0 +1,298 @@
+/* This CSS can be used if you're not using Material UI and want to implement the styles directly */
+
+/* General Styles */
+body {
+    font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8faf7;
+    color: #333333;
+  }
+
+  
+  h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #004d4d;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #004d4d;
+  }
+  
+  p {
+    font-size: 0.95rem;
+    color: #666666;
+  }
+  
+  button {
+    background-color: #004d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #003838;
+    box-shadow: 0 6px 12px rgba(0, 77, 77, 0.2);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Community Hub Section */
+  .community-hub {
+    padding: 48px 0;
+  }
+  
+  .community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  .community-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .community-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .community-card .icon-container {
+    background-color: #2a7d7d;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .community-card img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+  }
+  
+  /* Events Section */
+  .events {
+    padding: 48px 0;
+    background-color: #004d4d;
+    border-radius: 16px;
+    margin-bottom: 48px;
+  }
+  
+  .events h2 {
+    color: white;
+  }
+  
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  .event-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .event-image {
+    height: 160px;
+    overflow: hidden;
+  }
+  
+  .event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .event-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .event-domain {
+    background-color: #d6ff80;
+    color: #004d4d;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+  }
+  
+  .event-deadline {
+    background-color: #2a7d7d;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+  }
+  
+  /* Schedule Meet Section */
+  .schedule-meet {
+    padding: 48px 0;
+  }
+  
+  .consultant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  .consultant-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .consultant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .consultant-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #2a7d7d;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .consultant-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Micro-Entrepreneurs Section */
+  .micro-entrepreneurs {
+    padding: 48px 0;
+    background-color: white;
+    border-radius: 16px;
+  }
+  
+  .collaboration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  .collab-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .collab-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .collab-header {
+    background-color: #e0ff99;
+    padding: 16px;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .collab-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .collab-info {
+    margin-bottom: 8px;
+  }
+  
+  .collab-label {
+    font-weight: bold;
+    display: inline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+    
+    .community-grid,
+    .event-grid,
+    .consultant-grid,
+    .collaboration-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.75rem;
+    }
+    
+    .event-meta {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }

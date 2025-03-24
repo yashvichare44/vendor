@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Scheme Finder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.2/babel.min.js"></script>
+    <style>
+        :root {
+            --primary: #004d4d;
+            --primary-light: #2a7d7d;
+            --primary-dark: #003838;
+            --secondary: #d6ff80;
+            --secondary-light: #e0ff99;
+            --secondary-dark: #b2d966;
+            --bg-default: #f8faf7;
+            --bg-paper: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #004d4d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #f8faf7 0%, #e0f2f1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: var(--text-primary);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background-color: var(--bg-paper);
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            overflow: visible;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        h3 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .gender-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gender-card {
+            flex: 1;
+            max-width: 110px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .gender-card:hover {
+            border-color: var(--primary-light);
+        }
+        
+        .gender-card.selected {
+            border-color: var(--primary);
+            background-color: rgba(0, 77, 77, 0.05);
+        }
+        
+        .gender-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #757575;
+        }
+        
+        .gender-card.selected .gender-icon {
+            color: var(--primary);
+        }
+        
+        .gender-label {
+            font-weight: 500;
+            color: #555555;
+        }
+        
+        .gender-card.selected .gender-label {
+            color: var(--primary);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 77, 77, 0.1);
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        .btn {
+            display: inline-block;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border: none;
+            transition: background-color 0.3s, transform 0.1s;
+            min-width: 180px;
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(0, 77, 77, 0.05);
+        }
+        
+        .center {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .scheme {
+            background-color: rgba(0, 77, 77, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 400px;
+            animation: fadeIn 0.3s;
+        }
+        
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+        
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, 20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .video-link {
+            display: block;
+            text-decoration: none;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+            text-align: left;
+            transition: background-color 0.2s;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        .video-link:hover {
+            background-color: rgba(0, 77, 77, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        const SchemeFinderApp = () => {
+            // Form data state
+            const [formData, setFormData] = useState({
+                gender: "",
+                age: "",
+                state: "",
+                area: "",
+                category: "",
+                differently_abled: "",
+                minority: "",
+                business: ""
+            });
+            
+            // API response state
+            const [apiResponse, setApiResponse] = useState(null);
+            
+            // Loading state
+            const [isLoading, setIsLoading] = useState(false);
+            
+            // Notification state
+            const [notification, setNotification] = useState({
+                open: false,
+                message: "",
+                severity: "success"
+            });
+            
+            // Handle input changes for all form fields
+            const handleInputChange = (field, value) => {
+                setFormData(prevData => ({
+                    ...prevData,
+                    [field]: value
+                }));
+            };
+            
+            // Close notification after delay
+            useEffect(() => {
+                if (notification.open) {
+                    const timer = setTimeout(() => {
+                        setNotification(prev => ({ ...prev, open: false }));
+                    }, 5000);
+                    
+                    return () => clearTimeout(timer);
+                }
+            }, [notification.open]);
+            
+            // Validate form before submission
+            const validateForm = () => {
+                // Check if all fields are filled
+                const requiredFields = ["gender", "age", "state", "area", "category", "differently_abled", "minority", "business"];
+                const emptyFields = requiredFields.filter(field => !formData[field]);
+                
+                if (emptyFields.length > 0) {
+                    setNotification({
+                        open: true,
+                        message: `Please fill in all required fields: ${emptyFields.join(", ")}`,
+                        severity: "error"
+                    });
+                    return false;
+                }
+                
+                // Validate age is a number
+                if (isNaN(parseInt(formData.age))) {
+                    setNotification({
+                        open: true,
+                        message: "Age must be a valid number",
+                        severity: "error"
+                    });
+                    return false;
+                }
+                
+                return true;
+            };
+            
+            // Handle form submission
+            const handleSubmit = async () => {
+                if (!validateForm()) {
+                    return;
+                }
+                
+                // Prepare data for API
+                const apiData = {
+                    ...formData,
+                    age: parseInt(formData.age) // Convert age to integer as required by API
+                };
+                
+                setIsLoading(true);
+                
+                try {
+                    // In a real implementation, this would call your actual API
+                    // For demo purposes, we'll simulate a response after a delay
+                    setTimeout(() => {
+                        // Simulate API call
+                        const mockResponse = getMockResponse(apiData);
+                        setApiResponse(mockResponse);
+                        
+                        // Show success notification
+                        setNotification({
+                            open: true,
+                            message: "Successfully retrieved scheme recommendations",
+                            severity: "success"
+                        });
+                        
+                        setIsLoading(false);
+                    }, 1500);
+                    
+                    /* Actual API call would look like this:
+                    const response = await fetch('/get-scheme-guide', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(apiData)
+                    });
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.detail || 'An error occurred');
+                    }
+                    
+                    const data = await response.json();
+                    setApiResponse(data);
+                    */
+                    
+                } catch (error) {
+                    console.error("Error submitting form:", error);
+                    
+                    // Show error notification
+                    setNotification({
+                        open: true,
+                        message: error.message || "Failed to submit data. Please try again.",
+                        severity: "error"
+                    });
+                    
+                    setIsLoading(false);
+                }
+            };
+            
+            // Mock response generator based on user profile
+            const getMockResponse = (userData) => {
+                // Just a sample response - would be replaced by actual API response
+                const schemes = [];
+                
+                // Add schemes based on profile
+                if (userData.gender === "Female") {
+                    schemes.push({
+                        Name: "MUDRA Loan - Shishu",
+                        Description: "Financial support for women entrepreneurs",
+                        Eligibility: "Women above 18 years starting a small business",
+                        Benefits: "Loans up to ₹50,000 with minimal documentation",
+                        Application_Link: "#"
+                    });
+                }
+                
+                if (userData.business === "Agriculture") {
+                    schemes.push({
+                        Name: "PM-KISAN",
+                        Description: "Direct income support to farmers",
+                        Eligibility: "Small and marginal farmers with cultivable land",
+                        Benefits: "₹6,000 per year in three equal installments",
+                        Application_Link: "#"
+                    });
+                }
+                
+                if (userData.differently_abled === "Yes") {
+                    schemes.push({
+                        Name: "ADIP Scheme",
+                        Description: "Assistance for purchasing aids and appliances",
+                        Eligibility: "Persons with 40% disability and monthly income below ₹20,000",
+                        Benefits: "Free aids and appliances for living and occupation",
+                        Application_Link: "#"
+                    });
+                }
+                
+                // Add general schemes for everyone
+                schemes.push({
+                    Name: "Pradhan Mantri Jan Dhan Yojana",
+                    Description: "Financial inclusion program providing banking services",
+                    Eligibility: "All Indian citizens",
+                    Benefits: "Zero balance account, accident insurance, overdraft facility",
+                    Application_Link: "#"
+                });
+                
+                return {
+                    Feature_Name: "Customized Government Scheme Finder",
+                    Description: `Recommended schemes for ${userData.gender}, ${userData.age} years old, ${userData.area} area resident from ${userData.state}`,
+                    Sections: [
+                        {
+                            Section_Name: "Recommended Schemes",
+                            Content: "Based on your profile, you may be eligible for the following schemes:",
+                            Schemes: schemes,
+                            YouTube_Videos: [
+                                {
+                                    title: "How to Apply for Government Schemes Online",
+                                    url: "#"
+                                },
+                                {
+                                    title: "Documents Required for Scheme Applications",
+                                    url: "#"
+                                },
+                                {
+                                    title: "Benefits Explained: Government Support Programs",
+                                    url: "#"
+                                }
+                            ]
+                        },
+                        {
+                            Section_Name: "Application Process",
+                            Content: "Follow these steps to apply for the schemes listed above:",
+                            Steps: [
+                                "Visit the official website or nearest CSC center",
+                                "Keep your Aadhaar card, PAN card, and other required documents ready",
+                                "Fill the application form with accurate details",
+                                "Submit the application and track using the reference number"
+                            ],
+                            YouTube_Videos: [
+                                {
+                                    title: "Step-by-Step Guide: Filling Government Scheme Applications",
+                                    url: "#"
+                                },
+                                {
+                                    title: "Avoiding Common Mistakes in Applications",
+                                    url: "#"
+                                }
+                            ]
+                        }
+                    ]
+                };
+            };
+            
+            // Genders
+            const genders = [
+                { label: "Male", icon: "♂" },
+                { label: "Female", icon: "♀" },
+                { label: "Transgender", icon: "⚧" },
+            ];
+            
+            // States of India
+            const statesOfIndia = [
+                "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh",
+                "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland",
+                "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand",
+                "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Lakshadweep",
+                "Delhi", "Puducherry", "Ladakh", "Jammu and Kashmir"
+            ];
+            
+            // Business types
+            const businessTypes = [
+                "Small Retail Shop", 
+                "Restaurant/Food Service", 
+                "IT/Software", 
+                "Manufacturing", 
+                "Agriculture", 
+                "Service Industry", 
+                "Healthcare", 
+                "Education", 
+                "Construction", 
+                "Other"
+            ];
+            
+            // Render form component
+            const renderForm = () => {
+                return (
+                    <div className="card">
+                        <h2>Find Eligible Schemes</h2>
+                        
+                        <div className="form-group">
+                            <h3>Gender</h3>
+                            <div className="gender-options">
+                                {genders.map((gender) => (
+                                    <div 
+                                        key={gender.label}
+                                        className={`gender-card ${formData.gender === gender.label ? 'selected' : ''}`}
+                                        onClick={() => handleInputChange("gender", gender.label)}
+                                    >
+                                        <div className="gender-icon">{gender.icon}</div>
+                                        <div className="gender-label">{gender.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <div className="grid">
+                            <div className="form-group">
+                                <label htmlFor="age">
+                                    <h3>Age</h3>
+                                </label>
+                                <input
+                                    id="age"
+                                    type="number"
+                                    className="form-control"
+                                    value={formData.age}
+                                    onChange={(e) => handleInputChange("age", e.target.value)}
+                                    placeholder="Enter your age"
+                                />
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="state">
+                                    <h3>State</h3>
+                                </label>
+                                <select
+                                    id="state"
+                                    className="form-control"
+                                    value={formData.state}
+                                    onChange={(e) => handleInputChange("state", e.target.value)}
+                                >
+                                    <option value="" disabled>Select state</option>
+                                    {statesOfIndia.map((state) => (
+                                        <option key={state} value={state}>{state}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="area">
+                                    <h3>Area</h3>
+                                </label>
+                                <select
+                                    id="area"
+                                    className="form-control"
+                                    value={formData.area}
+                                    onChange={(e) => handleInputChange("area", e.target.value)}
+                                >
+                                    <option value="" disabled>Select area</option>
+                                    <option value="Urban">Urban</option>
+                                    <option value="Rural">Rural</option>
+                                </select>
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="category">
+                                    <h3>Category</h3>
+                                </label>
+                                <select
+                                    id="category"
+                                    className="form-control"
+                                    value={formData.category}
+                                    onChange={(e) => handleInputChange("category", e.target.value)}
+                                >
+                                    <option value="" disabled>Select category</option>
+                                    <option value="General">General</option>
+                                    <option value="OBC">OBC</option>
+                                    <option value="PVTG">PVTG</option>
+                                    <option value="SC">SC</option>
+                                </select>
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="differently_abled">
+                                    <h3>Differently Abled</h3>
+                                </label>
+                                <select
+                                    id="differently_abled"
+                                    className="form-control"
+                                    value={formData.differently_abled}
+                                    onChange={(e) => handleInputChange("differently_abled", e.target.value)}
+                                >
+                                    <option value="" disabled>Select option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            
+                            <div className="form-group">
+                                <label htmlFor="minority">
+                                    <h3>Minority</h3>
+                                </label>
+                                <select
+                                    id="minority"
+                                    className="form-control"
+                                    value={formData.minority}
+                                    onChange={(e) => handleInputChange("minority", e.target.value)}
+                                >
+                                    <option value="" disabled>Select option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            
+                            <div className="form-group" style={{ gridColumn: "1 / -1" }}>
+                                <label htmlFor="business">
+                                    <h3>Business Type</h3>
+                                </label>
+                                <select
+                                    id="business"
+                                    className="form-control"
+                                    value={formData.business}
+                                    onChange={(e) => handleInputChange("business", e.target.value)}
+                                >
+                                    <option value="" disabled>Select business type</option>
+                                    {businessTypes.map((type) => (
+                                        <option key={type} value={type}>{type}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div className="center">
+                            <button 
+                                className="btn btn-primary" 
+                                onClick={handleSubmit}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? <div className="loading"></div> : "Find Schemes"}
+                            </button>
+                        </div>
+                    </div>
+                );
+            };
+            
+            // Render scheme results
+            const renderSchemeResults = () => {
+                if (!apiResponse) return null;
+                
+                return (
+                    <div>
+                        <div className="card">
+                            <h2>{apiResponse.Feature_Name}</h2>
+                            <p style={{ textAlign: 'center', marginBottom: '1.5rem', color: '#666' }}>
+                                {apiResponse.Description}
+                            </p>
+                            
+                            {apiResponse.Sections && apiResponse.Sections.map((section, index) => (
+                                <div key={index} style={{ marginBottom: '2rem' }}>
+                                    <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+                                        {section.Section_Name}
+                                    </h3>
+                                    
+                                    <p style={{ marginBottom: '1rem', color: '#666' }}>
+                                        {section.Content}
+                                    </p>
+                                    
+                                    {section.Schemes && section.Schemes.map((scheme, schemeIndex) => (
+                                        <div key={schemeIndex} className="scheme">
+                                            <h3 style={{ color: 'var(--primary)' }}>
+                                                {scheme.Name}
+                                            </h3>
+                                            <p style={{ marginBottom: '0.5rem', color: '#666' }}>
+                                                {scheme.Description}
+                                            </p>
+                                            <p style={{ fontWeight: 500, marginBottom: '0.25rem' }}>
+                                                <strong>Eligibility:</strong> {scheme.Eligibility}
+                                            </p>
+                                            <p style={{ marginBottom: '0.75rem' }}>
+                                                <strong>Benefits:</strong> {scheme.Benefits}
+                                            </p>
+                                            {scheme.Application_Link && (
+                                                <a 
+                                                    href={scheme.Application_Link} 
+                                                    className="btn btn-outline"
+                                                    style={{ padding: '0.5rem 1rem', fontSize: '0.8rem', minWidth: 'auto' }}
+                                                    target="_blank"
+                                                >
+                                                    Apply Now
+                                                </a>
+                                            )}
+                                        </div>
+                                    ))}
+                                    
+                                    {section.Steps && (
+                                        <div style={{ marginTop: '1rem' }}>
+                                            <h3>Application Steps</h3>
+                                            <ul style={{ marginLeft: '1.5rem', marginTop: '0.5rem' }}>
+                                                {section.Steps.map((step, stepIndex) => (
+                                                    <li key={stepIndex} style={{ marginBottom: '0.5rem', color: '#555' }}>
+                                                        {step}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    
+                                    {section.YouTube_Videos && section.YouTube_Videos.length > 0 && (
+                                        <div style={{ marginTop: '1.5rem' }}>
+                                            <h3>Related Videos</h3>
+                                            <div className="video-grid">
+                                                {section.YouTube_Videos.map((video, videoIndex) => (
+                                                    <a 
+                                                        key={videoIndex} 
+                                                        href={video.url} 
+                                                        target="_blank" 
+                                                        className="video-link"
+                                                    >
+                                                        {video.title}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                            
+                            <div className="center">
+                                <button 
+                                    className="btn btn-outline" 
+                                    onClick={() => setApiResponse(null)}
+                                >
+                                    Back to Form
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+            
+            return (
+                <div className="container">
+                    {!apiResponse ? renderForm() : renderSchemeResults()}
+                    
+                    {notification.open && (
+                        <div className={`notification ${notification.severity}`}>
+                            {notification.message}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+        
+        ReactDOM.render(<SchemeFinderApp />, document.getElementById('app'));
+    </script>
+</body>
+</html>

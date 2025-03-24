@@ -1,0 +1,48 @@
+/* Custom progress bar styles */
+.bg-green-600 {
+    background-color: #22c55e;
+  }
+  
+  .text-green-100 {
+    color: #d1fae5;
+  }
+  
+  .rounded-l-full {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+  }
+  
+  /* Button hover effects */
+  .hover\:bg-green-700:hover {
+    background-color: #15803d;
+  }
+  
+  .hover\:bg-gray-700:hover {
+    background-color: #374151;
+  }
+  
+  .hover\:bg-red-700:hover {
+    background-color: #b91c1c;
+  }
+  
+  /* General styles */
+  .text-gray-500 {
+    color: #6b7280;
+  }
+  
+  .text-gray-900 {
+    color: #111827;
+  }
+  
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .font-light {
+    font-weight: 300;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
