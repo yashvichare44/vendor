@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS globally
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDI1Zeible2hRZVUaL-pH-YTMqPUaQE9gw")
+genai.configure(api_key="")
 
 # System Prompt for Gemini AI
 SYSTEM_PROMPT = """
