@@ -10,8 +10,8 @@ from typing import List, Optional, Dict, Any, Union
 app = FastAPI()
 
 # In a real application, these would be stored securely as environment variables
-GENAI_API_KEY = "AIzaSyDI1Zeible2hRZVUaL-pH-YTMqPUaQE9gw"
-YOUTUBE_API_KEY = "AIzaSyD1DdJQHsOlXpdObNcA6F0E9OmW7sSJISI"
+GENAI_API_KEY = ""
+YOUTUBE_API_KEY = ""
 
 # Configure Gemini AI
 genai.configure(api_key=GENAI_API_KEY)
