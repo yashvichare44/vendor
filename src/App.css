@@ -2,3 +2,27 @@
   min-width: 100%;
   text-align: center;
 }
+/* Hide Google Translate default UI */
+#google_translate_element {
+  display: none;
+}
+
+/* Hide Google translate toolbar */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Hide floating Google Translate logo */
+.goog-logo-link {
+  display: none !important;
+}
+
+/* Hide language selection boxes */
+.goog-te-gadget {
+  font-size: 0px; /* Hides text */
+}
+
+/* Ensure iframe (Google Translate) is hidden */
+.goog-te-menu-frame {
+  display: none !important;
+}

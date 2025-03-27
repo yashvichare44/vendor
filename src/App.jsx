@@ -17,11 +17,16 @@ import FinancialPlanDashboard from './components/financial-plan/FinancialPlanDas
 import PricingPage from './components/payment/pay';
 import Hero from './components/schemes/components/Hero';
 import Dashboard from './components/homepage/dashboard';
+import SchemeFinderForm from './components/particular-scheme/Form';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 // Create a Layout component to handle the sidebar + content structure
 const DashboardLayout = ({ children }) => {
   return (
     <PremiumLeftNavbar>
+      <div className="absolute top-4 right-4"> {/* Position dropdown in the dashboard */}
+        <LanguageSwitcher />
+      </div>
       {children}
     </PremiumLeftNavbar>
   );
@@ -109,6 +114,12 @@ function App() {
         <Route path="/logout" element={
           <DashboardLayout>
             <div>Logging out...</div>
+          </DashboardLayout>
+        } />
+        {/* Logout route - redirects to home */}
+        <Route path="/form" element={
+          <DashboardLayout>
+            <SchemeFinderForm/>
           </DashboardLayout>
         } />
       </Routes>

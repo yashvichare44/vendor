@@ -1,11 +1,21 @@
 import React from "react";
 import "./Hero.css";
+import {useNavigate } from 'react-router-dom'
 
 const Hero = () => {
-  return (
-    <div className="container">
-      {/* Find Schemes Button */}
-      <button class="find-schemes-btn" onclick="window.location.href='/form'">Find Schemes For You →</button>
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+      navigate('/form');
+  };
+
+return (
+  <div className="container">
+
+    {/* Find Schemes Button */}
+    <button className="find-schemes-btn" onClick={handleClick}>
+  Find Schemes For You →
+</button>
 
       {/* Statistics Cards */}
       <div className="stats-container">

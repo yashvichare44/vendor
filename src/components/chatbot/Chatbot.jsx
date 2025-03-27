@@ -7,9 +7,8 @@ function Chatbot() {
   const [messages, setMessages] = useState([
     {
       id: '1',
-      text: "Hello! I'm your AI assistant for small businesses. How can I help you today?",
+      text: "Hello! I'm your AI assistant. How can I help you today?",
       sender: 'bot',
-      timestamp: new Date(),
     },
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -39,7 +38,6 @@ function Chatbot() {
       id: Date.now().toString(),
       text: inputMessage,
       sender: 'user',
-      timestamp: new Date(),
     };
 
     setMessages((prev) => [...prev, userMessage]);
@@ -65,7 +63,6 @@ function Chatbot() {
         id: (Date.now() + 1).toString(),
         text: data.reply,
         sender: 'bot',
-        timestamp: new Date(),
       };
       
       setMessages((prev) => [...prev, botResponse]);
@@ -81,7 +78,6 @@ function Chatbot() {
         id: (Date.now() + 1).toString(),
         text: "Sorry, I couldn't connect to the server. Please try again later.",
         sender: 'bot',
-        timestamp: new Date(),
       };
       
       setMessages((prev) => [...prev, errorResponse]);
@@ -121,7 +117,6 @@ function Chatbot() {
                 </div>
                 <div className={`message-content ${message.sender}`}>
                   <p>{message.text}</p>
-                  <span>{message.timestamp.toLocaleTimeString()}</span>
                 </div>
               </div>
             ))}

@@ -195,7 +195,7 @@ const Dashboard = () => {
                         TODAY'S REVENUE
                       </Typography>
                       <Typography variant="h5" fontWeight="bold" color="text.primary">
-                        $53,000
+                        530
                       </Typography>
                     </Box>
                     <StyledAvatar bgcolor={theme.palette.primary.main}>
@@ -220,7 +220,7 @@ const Dashboard = () => {
                         TODAY'S USERS
                       </Typography>
                       <Typography variant="h5" fontWeight="bold" color="text.primary">
-                        2,300
+                        230
                       </Typography>
                     </Box>
                     <StyledAvatar bgcolor="#2a7d7d">
@@ -245,7 +245,7 @@ const Dashboard = () => {
                         NEW CLIENTS
                       </Typography>
                       <Typography variant="h5" fontWeight="bold" color="text.primary">
-                        +3,462
+                        +3
                       </Typography>
                     </Box>
                     <StyledAvatar bgcolor={theme.palette.secondary.dark}>
@@ -270,7 +270,7 @@ const Dashboard = () => {
                         TOTAL SALES
                       </Typography>
                       <Typography variant="h5" fontWeight="bold" color="text.primary">
-                        $103,430
+                        1030
                       </Typography>
                     </Box>
                     <StyledAvatar bgcolor={theme.palette.primary.dark}>

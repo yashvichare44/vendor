@@ -114,86 +114,86 @@ const theme = createTheme({
 const businessData = [
   {
     id: 1,
-    title: "Business Idea & Planning",
+    title: "Agribusiness Idea & Planning",
     icon: <LightbulbOutlined sx={{ fontSize: 60 }} />,
-    content: "Choosing a profitable business idea and validating its demand is crucial for success. Start by identifying your niche market and conducting thorough research on current trends. Validate your idea by surveying potential customers, analyzing search volume, and assessing the competitive landscape. Finally, create a comprehensive business plan that outlines your goals, target audience, revenue model, and marketing strategies. This plan serves as your roadmap for growth and helps secure funding.",
+    content: "Choosing a profitable agribusiness and validating its demand is crucial for success. Identify high-demand crops or livestock based on market trends, climate suitability, and available resources. Conduct research on soil quality, irrigation methods, and government support schemes. Validate your idea by analyzing market prices, supply chains, and local demand. Finally, create a business plan covering crop cycles, investment needs, revenue potential, and risk management strategies.",
     steps: [
-      "1. Identify Your Niche: Research market trends using Google Trends, SEMrush, and competitor analysis.",
-      "2. Validate the Idea: Conduct surveys, check Google search volume, and analyze potential demand.",
-      "3. Create a Business Plan: Outline your goals, target audience, revenue model, and marketing strategy."
+      "1. Identify Profitable Crops/Livestock: Research climate suitability and market trends.",
+      "2. Validate Demand: Analyze local and global market prices and assess supply chain gaps.",
+      "3. Create an Agribusiness Plan: Define crop cycles, investment, and revenue strategy."
     ],
     resources: [
       {
-        title: "Google Trends",
-        url: "https://trends.google.com/",
+        title: "FAO Market & Crops Analysis",
+        url: "https://www.fao.org/",
         youtubeVideo: "https://www.youtube.com/watch?v=xyz123"
       },
       {
-        title: "SEMrush - Market Research",
-        url: "https://www.semrush.com/",
+        title: "Agri Market Research - ICAR",
+        url: "https://icar.org.in/",
         youtubeVideo: "https://www.youtube.com/watch?v=abc456"
       }
     ]
   },
   {
     id: 2,
-    title: "Business Registration & Legal Setup",
+    title: "Farm Registration & Legal Setup",
     icon: <AccountBalanceOutlined sx={{ fontSize: 60 }} />,
-    content: "Registering your business legally is essential for establishing credibility and operating within the law. This process involves selecting the appropriate business structure, such as a sole proprietorship, LLC, or private limited company. You'll need to register your business name with the relevant government authority and obtain the necessary licenses and tax identification numbers. This ensures compliance and allows you to conduct business legally.",
+    content: "Registering your farm or agribusiness legally is essential for accessing subsidies, loans, and ensuring smooth operations. Choose a suitable legal structure such as a farmer cooperative, sole proprietorship, or agro-enterprise. Register your farm with the local agricultural department and obtain necessary certifications like organic farming licenses or food safety approvals. This enables you to legally sell your produce in national and international markets.",
     steps: [
-      "1. Choose a Business Structure (Sole Proprietor, LLC, Private Limited, etc.)",
-      "2. Register Your Business Name via Government Portal (e.g., MCA in India, SEC in the USA)",
-      "3. Apply for Business Licenses & Tax ID"
+      "1. Choose a Business Structure (Farmer Cooperative, Sole Proprietorship, Agro-Enterprise, etc.)",
+      "2. Register Your Farm via Government Agriculture Portal",
+      "3. Apply for Farming Licenses & Subsidies (Organic Certification, Food Safety Approvals)"
     ],
     resources: [
       {
-        title: "Govt Business Registration",
-        url: "https://www.mca.gov.in/",
+        title: "Govt Agriculture Registration",
+        url: "https://agricoop.nic.in/",
         youtubeVideo: "https://www.youtube.com/watch?v=uvw321"
       }
     ]
   },
   {
     id: 3,
-    title: "Google My Business & Marketplace Registration",
+    title: "Market Access & Online Selling",
     icon: <StorefrontOutlined sx={{ fontSize: 60 }} />,
-    content: "Enhance your online visibility by listing your business on platforms like Google My Business and popular marketplaces. Creating a Google My Business profile allows customers to find your business easily on Google Search and Maps. Listing your products on marketplaces like Amazon, Flipkart, and using WhatsApp Business expands your reach and connects you with a wider audience. Optimizing your profiles with accurate information and engaging visuals is key to attracting customers.",
+    content: "Expand your farm's reach by listing your produce on online agricultural marketplaces and platforms like eNAM, AgriBazaar, and WhatsApp Business. Registering on Google My Business helps customers and wholesalers find your farm location easily. Optimizing your marketplace listings with high-quality images, accurate pricing, and descriptions increases sales opportunities and builds customer trust.",
     steps: [
-      "1. Sign up on Google My Business at business.google.com",
-      "2. Verify your location (Postcard or phone verification)",
-      "3. Optimize your profile (Add business hours, photos, and products)"
+      "1. Register on Agri Marketplaces (eNAM, AgriBazaar, Krishify)",
+      "2. Set Up Google My Business for Farm Visibility",
+      "3. Optimize Listings with High-Quality Images and Detailed Descriptions"
     ],
     resources: [
       {
-        title: "Google My Business",
-        url: "https://business.google.com/",
+        title: "eNAM - Online Agriculture Market",
+        url: "https://enam.gov.in/",
         youtubeVideo: "https://www.youtube.com/watch?v=klm654"
       },
       {
-        title: "Amazon Seller Registration",
-        url: "https://sell.amazon.com/",
+        title: "AgriBazaar - Sell Crops Online",
+        url: "https://agribazaar.com/",
         youtubeVideo: "https://www.youtube.com/watch?v=rst789"
       }
     ]
   },
   {
     id: 4,
-    title: "Website & Social Media Setup",
+    title: "Farm Website & Social Media Presence",
     icon: <CampaignOutlined sx={{ fontSize: 60 }} />,
-    content: "Establishing a strong online presence requires a professional website and active social media profiles. Choose a website builder like Wix, Shopify, or WordPress, and secure a domain name and hosting. Create engaging content and optimize your website for search engines. Set up social media accounts on platforms relevant to your target audience, such as Facebook, Instagram, LinkedIn, and TikTok. Regularly update your content to keep your audience engaged.",
+    content: "Building a digital presence is key to reaching consumers, wholesalers, and investors. Create a website to showcase your farm's products, sustainable practices, and pricing. Utilize platforms like Facebook, Instagram, and YouTube to engage customers with farm updates, harvesting videos, and educational content. Digital marketing can help attract new buyers and expand your agribusiness reach.",
     steps: [
-      "1. Choose a Website Builder (Wix, Shopify, WordPress, Squarespace)",
-      "2. Get a Domain & Hosting (GoDaddy, Bluehost, Hostinger)",
-      "3. Set Up Social Media Accounts (Facebook, Instagram, LinkedIn, TikTok)"
+      "1. Create a Farm Website (Wix, WordPress, Shopify)",
+      "2. Register a Domain & Hosting (GoDaddy, Bluehost)",
+      "3. Use Social Media for Marketing (Facebook, Instagram, YouTube)"
     ],
     resources: [
       {
-        title: "Shopify",
-        url: "https://www.shopify.com/",
+        title: "Wix - Build a Farm Website",
+        url: "https://www.wix.com/",
         youtubeVideo: "https://www.youtube.com/watch?v=qwe567"
       },
       {
-        title: "WordPress Setup Guide",
+        title: "Agriculture Digital Marketing Guide",
         url: "https://wordpress.org/",
         youtubeVideo: "https://www.youtube.com/watch?v=yza987"
       }
@@ -201,17 +201,18 @@ const businessData = [
   },
   {
     id: 5,
-    title: "AI-Powered Marketing & Automation",
+    title: "AI-Powered Precision Farming & Automation",
     icon: <QueryStatsOutlined sx={{ fontSize: 60 }} />,
-    content: "Leverage the power of AI to streamline your marketing efforts and automate repetitive tasks. AI-powered tools like Hootsuite, Buffer, and Canva AI can help schedule social media posts, analyze performance, and create engaging visuals. Utilize AI-generated ad campaigns on platforms like Google Ads and Meta Ads to target specific demographics and optimize your ad spend. This allows you to reach a wider audience efficiently.",
+    content: "Leverage AI and automation to improve farm productivity and efficiency. AI-driven tools like satellite-based crop monitoring, automated irrigation, and pest detection systems help optimize yields. AI-powered market forecasting tools can predict price trends and suggest the best time to sell produce. Automation in farming reduces labor costs and increases productivity through precision agriculture techniques.",
     steps: [
-      "1. Use AI for Social Media Automation (Hootsuite, Buffer, Canva AI)",
-      "2. Run AI-Generated Ad Campaigns (Google Ads, Meta Ads)"
+      "1. Use AI for Crop Monitoring (Satellite Data, IoT Sensors, Drones)",
+      "2. Automate Irrigation & Pest Control with Smart Farming Systems",
+      "3. Analyze Market Trends with AI for Better Pricing Strategies"
     ],
     resources: [
       {
-        title: "Hootsuite - AI Social Media Scheduler",
-        url: "https://hootsuite.com/",
+        title: "Precision Farming AI Tools",
+        url: "https://www.smartfarmingtech.com/",
         youtubeVideo: "https://www.youtube.com/watch?v=bvc321"
       }
     ]

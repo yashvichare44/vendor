@@ -116,8 +116,7 @@ const AboutUsSection = () => {
                     maxWidth: 600,
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit arcu eleifend quis elementum elementum massa facilisi more cras ullamcorper nibh egestas et cursus praesent.
-                </Typography>
+                HathSarthi with a focus on elegant and structured design. Strong elements contribute to balance and ease, while seamless integration ensures smooth functionality and effective presentation.</Typography>
                 
                 <Box sx={{
                   display: 'flex',

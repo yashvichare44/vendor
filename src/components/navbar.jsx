@@ -96,13 +96,13 @@ const NavbarWithRouting = ({ children }) => {
   const navItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, badge: null, path: '/dashboard' },
     { text: 'Schemes', icon: <AutoAwesomeIcon />, badge: null, path: '/schemes' },
-    { text: 'Shared Resources', icon: <FolderSharedIcon />, badge: null, path: '/shared-resources' },
-    { text: 'Business Setup', icon: <BusinessCenterIcon />, badge: null, path: '/business-setup' },
-    { text: 'Business Insights', icon: <InsightsIcon />, badge: null, path: '/business-insights' },
-    { text: 'Financial Plan', icon: <AccountBalanceWalletIcon />, badge: null, path: '/financial-plan' },
-    { text: 'Community Hub', icon: <PeopleIcon />, badge: null, path: '/community' },
-    // { text: 'Form', icon: <AssignmentIcon />, badge: 5, path: '/form' },
-    { text: 'Subscription', icon: <AccountBalanceWalletIcon />, badge: null, path: '/pay' },
+    // { text: 'Shared Resources', icon: <FolderSharedIcon />, badge: null, path: '/shared-resources' },
+     { text: 'Business Setup', icon: <BusinessCenterIcon />, badge: null, path: '/business-setup' },
+    // { text: 'Business Insights', icon: <InsightsIcon />, badge: null, path: '/business-insights' },
+    // { text: 'Financial Plan', icon: <AccountBalanceWalletIcon />, badge: null, path: '/financial-plan' },
+    // { text: 'Community Hub', icon: <PeopleIcon />, badge: null, path: '/community' },
+    // // { text: 'Form', icon: <AssignmentIcon />, badge: 5, path: '/form' },
+    // { text: 'Subscription', icon: <AccountBalanceWalletIcon />, badge: null, path: '/pay' },
   ];
 
   const bottomNavItems = [

@@ -113,8 +113,7 @@ const ConsultationPage = () => {
               color="white" 
               sx={{ mb: 6, opacity: 0.9 }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit non
-              nulla nulla nisi, habitant massa eros tempus.
+            Hathsarthi is dedicated to excellence, combining innovation and strategy to drive success.
             </Typography>
             
             <Box sx={{ display: 'flex', gap: 2 }}>

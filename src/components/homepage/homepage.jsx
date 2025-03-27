@@ -50,20 +50,20 @@ const theme = createTheme({
 // Carousel slide data
 const carouselSlides = [
   {
-    heading: "Accelerating your business's growth and performance",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    heading: "Accelerating Your Business Growth and Performance",
+    description: "We help businesses achieve rapid growth and improve overall performance with expert strategies.",
     imageSrc: "https://consaltip.boomdevstheme.com/wp-content/uploads/2023/07/slider_img_2.png",
     imageAlt: "Business Professional"
   },
   {
-    heading: "Strategic consulting for sustainable results",
-    description: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+    heading: "Strategic Consulting for Sustainable Results",
+    description: "Our expert consulting services drive long-term success through well-planned strategies.",
     imageSrc: "https://consaltip.boomdevstheme.com/wp-content/uploads/2023/07/slider_img.png",
     imageAlt: "Business Strategy"
   },
   {
-    heading: "Transforming challenges into opportunities",
-    description: "Nulla facilisi. Cras non dolor et quam molestie sollicitudin nullam dolor.",
+    heading: "Transforming Challenges into Opportunities",
+    description: "We turn obstacles into growth opportunities, helping businesses thrive in any market.",
     imageSrc: "https://consaltip.boomdevstheme.com/wp-content/uploads/2023/07/slider_img_4.png",
     imageAlt: "Business Transformation"
   }

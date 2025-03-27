@@ -449,7 +449,7 @@ export default function LandingPage() {
     <Grid container spacing={4}>
       <Grid item xs={12} md={3}>
         <Typography variant="h6" gutterBottom component="h3">
-          VyaparMitra
+          HathSarthi
         </Typography>
         <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.7)", mb: 2 }}>
         Empowering Small Businesses with AI-Driven Insights, Smart Financial Planning, and Sustainable Growth.
